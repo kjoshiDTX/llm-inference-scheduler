@@ -1,0 +1,13 @@
+torch
+transformers
+tokenizers
+safetensors
+huggingface_hub
+fastapi
+uvicorn[standard]
+httpx
+sse-starlette
+numpy
+regex
+matplotlib
+pytest
