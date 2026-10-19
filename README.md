@@ -91,15 +91,6 @@ curl -N localhost:8000/v1/chat/completions -d '{
 | `router/` | Go streaming proxy; round-robin / hash / cache-aware policies | 12–13 |
 | `loadgen/`, `benchmarks/` | open-loop Poisson load, policy sweep, headline chart | 14 |
 
-## Honest limitations
-
-Python-speed attention (per-sequence gather, no fused paged kernel); CPU fp32
-because the cluster is a MacBook; block-aligned radix edges (SGLang splits
-anywhere); recompute-only preemption (no swap); char-level approximate router
-state (sgl-router is token-accurate); no tensor parallelism. Future work, in
-the order it would matter: fp8 KV quantization (2× conversations per GPU),
-worker→router cache-state feedback, live request migration (Llumnix),
-prefill/decode disaggregation (DistServe, Mooncake).
 
 ## Papers this implements (in reading order)
 
